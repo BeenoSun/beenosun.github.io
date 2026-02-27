@@ -20,7 +20,7 @@ Before coming to Stony Brook, I spent three wonderful years at Huazhong Universi
   <meta itemprop="name" content="Bin Sun">
   <meta itemprop="description" content=" Hello! I’m Bin Sun, a first-year PhD student in Computer Science at Stony Brook University, advised by Prof. Radu Sion. My research interests are broadly in the security of real-world systems and applications. At the moment, I’m particularly interested in understanding and mitigating data poisoning risks in large language models.
 Before coming to Stony Brook, I spent three wonderful years at Huazhong University of Science and Technology (HUST), where I worked on the security of password management systems. Earlier, I completed my undergraduate studies at the China University of Geosciences, where I had fun working on Computer Vision.">
-  <meta itemprop="wordCount" content="758">
+  <meta itemprop="wordCount" content="781">
     
     <link rel="canonical" href="https://beenosun.github.io/">
     <link rel="icon" href="https://beenosun.github.io//assets/favicon.ico">
@@ -78,42 +78,43 @@ Before coming to Stony Brook, I spent three wonderful years at Huazhong Universi
 <p>I contributed to &ldquo;Overseer: Enforcing Fine-Grained Memory Access Control Across Execution Environments&rdquo; by improving its deployment practicality.</p>
 </li>
 <li>
-<p>Why Overseer?
-ARM TrustZone enforces strong isolation from the Normal World to the Secure World, but not vice versa: the Secure World can freely map and access Normal World physical memory. With vulnerable or compromised Trusted Applications (TAs), this asymmetric protection allows attackers to bypass Normal World security policies and leak or modify sensitive data. Existing defenses, such as <a href="https://www.usenix.org/system/files/sec22-cerdeira.pdf">ReZone</a>, mitigate this risk by partitioning the Secure World into hardware-enforced zones, but they rely on additional hardware support and coarse-grained isolation, which limits deployability and can introduce non-trivial performance overhead.</p>
-</li>
-<li>
-<p>What we built and how it performs.
-Overseer is a software-based Secure Monitor mechanism that enforces fine-grained, policy-driven control over physical memory mappings across TrustZone execution environments. It ensures that access to Normal and Secure World memory is explicitly authorized by the memory owner and further restricts Secure Monitor Calls (SMCs) and Secure OS system calls. Overseer is TrustZone-implementation agnostic, requires minimal code changes, and incurs less than 2% performance overhead on average. To streamline deployment, I built an Integrator tool that automatically produces signed binaries from annotated source code. Given the annotated code that defines the policy and the developer key, the tool generates a signed binary that specifies the policy&rsquo;s protected virtual memory regions and their access permissions for designated TAs.</p>
+<p>Why Overseer?</p>
 </li>
 </ul>
+<p>ARM TrustZone enforces strong isolation from the Normal World to the Secure World, but not vice versa: the Secure World can freely map and access Normal World physical memory. With vulnerable or compromised Trusted Applications (TAs), this asymmetric protection allows attackers to bypass Normal World security policies and leak or modify sensitive data. Existing defenses, such as <a href="https://www.usenix.org/system/files/sec22-cerdeira.pdf">ReZone</a>, mitigate this risk by partitioning the Secure World into hardware-enforced zones, but they rely on additional hardware support and coarse-grained isolation, which limits deployability and can introduce non-trivial performance overhead.</p>
+<ul>
+<li>What we built and how it performs.</li>
+</ul>
+<p>Overseer is a software-based Secure Monitor mechanism that enforces fine-grained, policy-driven control over physical memory mappings across TrustZone execution environments. It ensures that access to Normal and Secure World memory is explicitly authorized by the memory owner and further restricts Secure Monitor Calls (SMCs) and Secure OS system calls. Overseer is TrustZone-implementation agnostic, requires minimal code changes, and incurs less than 2% performance overhead on average. To streamline deployment, I built an Integrator tool that automatically produces signed binaries from annotated source code. Given the annotated code that defines the policy and the developer key, the tool generates a signed binary that specifies the policy&rsquo;s protected virtual memory regions and their access permissions for designated TAs.</p>
 <p>Bubble:</p>
 <ul>
 <li>
 <p>I led the development of Bubble, a defense framework for protecting honey-encrypted password vaults against credential-guided attacks.</p>
 </li>
 <li>
-<p>Why Bubble?
-Existing <a href="https://www.usenix.org/system/files/sec21-cheng-haibo.pdf">honey vault systems</a> offer little protection once attackers obtain a leaked credential from the vault. As <a href="https://www.f5.com/labs/articles/2021-credential-stuffing-report">Billions of credentials are compromised annually</a>, large-scale public leaks such as <a href="https://www.wired.com/story/collection-leak-usernames-passwords-billions/">one dataset containing 2.2 billion credentials</a> happen sometimes, this threat becomes increasingly practical but is left unaddressed. Bubble is the first framework to protect honey vault systems against credential-guided attacks.</p>
-</li>
-<li>
-<p>What we built and how it performs.
-Bubble is a generic framework that shuffles vault metadata and mimics multiple plausible password vaults, ensuring that even incorrect guesses decrypt into realistic decoy vaults for attackers with the credential leaked from the vault. Our implementation introduces low deployment overhead. Compared to prior systems (e.g., <a href="https://www.usenix.org/system/files/sec21-cheng-haibo.pdf">Incremental honey vault</a>), which protect only 3.4% of vaults against credential-guided attacks, Bubble achieves over 73% resistance.</p>
+<p>Why Bubble?</p>
 </li>
 </ul>
+<p>Existing <a href="https://www.usenix.org/system/files/sec21-cheng-haibo.pdf">honey vault systems</a> offer little protection once attackers obtain a leaked credential from the vault. As <a href="https://www.f5.com/labs/articles/2021-credential-stuffing-report">Billions of credentials are compromised annually</a>, large-scale public leaks such as <a href="https://www.wired.com/story/collection-leak-usernames-passwords-billions/">one dataset containing 2.2 billion credentials</a> happen sometimes, this threat becomes increasingly practical but is left unaddressed. Bubble is the first framework to protect honey vault systems against credential-guided attacks.</p>
+<ul>
+<li>What we built and how it performs.</li>
+</ul>
+<p>Bubble is a generic framework that shuffles vault metadata and mimics multiple plausible password vaults, ensuring that even incorrect guesses decrypt into realistic decoy vaults for attackers with the credential leaked from the vault. Our implementation introduces low deployment overhead. Compared to prior systems (e.g., <a href="https://www.usenix.org/system/files/sec21-cheng-haibo.pdf">Incremental honey vault</a>), which protect only 3.4% of vaults against credential-guided attacks, Bubble achieves over 73% resistance.</p>
 <p><a href="https://arxiv.org/abs/2207.12967">Transfiner</a>:</p>
 <ul>
 <li>
 <p>I led the development of &ldquo;TransFiner: A Full-Scale Refinement Approach for Multiple Object Tracking&rdquo;.</p>
 </li>
 <li>
-<p>Why TransFiner?
-Modern Multiple Object Tracking (MOT) systems decompose tracking into detection and association, but limited information exchange between these subtasks often causes tracking algorithms to fail in crowded or noisy environments, leading to missed detections and identity switches. Existing trackers tend to be biased toward one subtask (object detection or association) and struggle to correct these errors after the fact.</p>
-</li>
-<li>
-<p>What we built and how it performs.
-TransFiner is a generic post-refinement framework that can be attached to existing trackers. It uses query pairs as a bridge between the original tracker and a transformer-based fusion decoder, which jointly refines detection and motion cues for each object. Evaluated on the MOT17 benchmark, TransFiner improves CenterTrack from 67.8% to 71.5% MOTA and from 64.7% to 66.8% IDF1, demonstrating consistent gains in both accuracy and identity preservation.</p>
+<p>Why TransFiner?</p>
 </li>
 </ul>
+<p>Modern Multiple Object Tracking (MOT) systems decompose tracking into detection and association, but limited information exchange between these subtasks often causes tracking algorithms to fail in crowded or noisy environments, leading to missed detections and identity switches. Existing trackers tend to be biased toward one subtask (object detection or association) and struggle to correct these errors after the fact.</p>
+<ul>
+<li>What we built and how it performs.</li>
+</ul>
+<p>TransFiner is a generic post-refinement framework that can be attached to existing trackers. It uses query pairs as a bridge between the original tracker and a transformer-based fusion decoder, which jointly refines detection and motion cues for each object. Evaluated on the MOT17 benchmark, TransFiner improves CenterTrack from 67.8% to 71.5% MOTA and from 64.7% to 66.8% IDF1, demonstrating consistent gains in both accuracy and identity preservation.</p>
+<p>If you&rsquo;d like to chat with me about my work or research in general, feel free to reach out <a href="mailto:superbeenob@gmail.com">email</a>!</p>
 <h2 id="manuscripts">Manuscripts</h2>
 <p>Darius Suciu, Sandeep Kiran Pinjala, <strong>Bin Sun</strong>, Radu Sion. Overseer: Enforcing Fine-Grained Memory Access Control Across Execution Environments. (Under submission)</p>
 <p><strong>Bin Sun</strong>, Wei Wang, Peng Xu, Laurence T. Yang, Xianglong Zhang, Kaitai Liang. Bubble: Constructing Mimicry Password Vaults to Defend against Credential-Guided Attacks. (Under submission)</p>
@@ -124,6 +125,10 @@ TransFiner is a generic post-refinement framework that can be attached to existi
 <p>Asia: Thailand (2015), Japan (2016, 2023)</p>
 <p>Europe: Spain (2018), Germany (2019), Austria (2019), Czech Republic (2019), Hungary (2019), Turkey (2023), Italy (2025)</p>
 <p>America: US (2024)</p>
+<h2 id="contact">Contact</h2>
+<ul>
+<li><strong>Email:</strong> <a href="mailto:superbeenob@gmail.com">superbeenob@gmail.com</a></li>
+</ul>
 
       
     </div>
