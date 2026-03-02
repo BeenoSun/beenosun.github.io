@@ -20,7 +20,7 @@ Before coming to Stony Brook, I spent three wonderful years at Huazhong Universi
   <meta itemprop="name" content="Bin Sun">
   <meta itemprop="description" content=" Hello! I’m Bin Sun, a first-year PhD student in Computer Science at Stony Brook University, advised by Prof. Radu Sion. My research interests are broadly in the security of real-world systems and applications. At the moment, I’m particularly interested in understanding and mitigating data poisoning risks in large language models.
 Before coming to Stony Brook, I spent three wonderful years at Huazhong University of Science and Technology (HUST), where I worked on the security of password management systems. Earlier, I completed my undergraduate studies at the China University of Geosciences, where I had fun working on Computer Vision.">
-  <meta itemprop="wordCount" content="773">
+  <meta itemprop="wordCount" content="896">
     
     <link rel="canonical" href="https://beenosun.github.io/">
     <link rel="icon" href="https://beenosun.github.io//assets/favicon.ico">
@@ -87,7 +87,12 @@ Before coming to Stony Brook, I spent three wonderful years at Huazhong Universi
 <p>Hello! I’m Bin Sun, a first-year PhD student in Computer Science at Stony Brook University, advised by <a href="https://zxr.io/">Prof. Radu Sion</a>. My research interests are broadly in the security of real-world systems and applications. At the moment, I’m particularly interested in understanding and mitigating data poisoning risks in large language models.</p>
 <p>Before coming to Stony Brook, I spent three wonderful years at Huazhong University of Science and Technology (HUST), where I worked on the security of password management systems. Earlier, I completed my undergraduate studies at the China University of Geosciences, where I had fun working on Computer Vision.</p>
 <h2 id="projects">Projects</h2>
-<h3 id="overseer">Overseer:</h3>
+<h3 id="paperbait-dec-2025--present">Paperbait (Dec 2025 – Present):</h3>
+<ul>
+<li>Why Paperbait?</li>
+</ul>
+<p>LLM pipelines typically treat scientific literature as a trusted knowledge source, yet both training datasets and deployed systems such as retrieval-augmented generation (RAG) often strip or ignore provenance. Thus, preprints under minimal quality control can be ingested or cited alongside peer-reviewed work. This creates a realistic and underexplored attack surface: fabricated scientific papers that poison either model fine-tuning or knowledge base for reasoning. The risk is amplified by LLM systems built exclusively over academic literature (e.g., <a href="https://dl.acm.org/doi/pdf/10.1145/3732775.3733586">HiPerRAG</a>). PaperBait studies how maliciously fabricated research papers can be generated and injected to mislead LLMs at scale, as well as defense mechanisms to prevent this.</p>
+<h3 id="overseer-nov-2025--present">Overseer (Nov 2025 – Present):</h3>
 <ul>
 <li>
 <p>I contributed to &ldquo;Overseer: Enforcing Fine-Grained Memory Access Control Across Execution Environments&rdquo; by improving its deployment practicality.</p>
@@ -101,7 +106,7 @@ Before coming to Stony Brook, I spent three wonderful years at Huazhong Universi
 <li>What we built and how it performs.</li>
 </ul>
 <p>Overseer is a software-based Secure Monitor mechanism that enforces fine-grained, policy-driven control over physical memory mappings across TrustZone execution environments. It ensures that access to Normal and Secure World memory is explicitly authorized by the memory owner and further restricts Secure Monitor Calls (SMCs) and Secure OS system calls. Overseer is TrustZone-implementation agnostic, requires minimal code changes, and incurs less than 2% performance overhead on average. To streamline deployment, I built an Integrator tool that automatically produces signed binaries from annotated source code. Given the annotated code that defines the policy and the developer key, the tool generates a signed binary that specifies the policy&rsquo;s protected virtual memory regions and their access permissions for designated TAs.</p>
-<h3 id="bubble">Bubble:</h3>
+<h3 id="bubble-sep-2022--may-2025">Bubble (Sep 2022 – May 2025):</h3>
 <ul>
 <li>
 <p>I led the development of Bubble, a defense framework for protecting honey-encrypted password vaults against credential-guided attacks.</p>
@@ -115,7 +120,7 @@ Before coming to Stony Brook, I spent three wonderful years at Huazhong Universi
 <li>What we built and how it performs.</li>
 </ul>
 <p>Bubble is a generic framework that shuffles vault metadata and mimics multiple plausible password vaults, ensuring that even incorrect guesses decrypt into realistic decoy vaults for attackers with the credential leaked from the vault. Our implementation introduces low deployment overhead. Compared to prior systems (e.g., <a href="https://www.usenix.org/system/files/sec21-cheng-haibo.pdf">Incremental honey vault</a>), which protect only 3.4% of vaults against credential-guided attacks, Bubble achieves over 73% resistance.</p>
-<h3 id="transfinerhttpsarxivorgabs220712967"><a href="https://arxiv.org/abs/2207.12967">Transfiner</a>:</h3>
+<h3 id="transfinerhttpsarxivorgabs220712967-sep-2021--jun-2022"><a href="https://arxiv.org/abs/2207.12967">Transfiner</a> (Sep 2021 – Jun 2022):</h3>
 <ul>
 <li>
 <p>I led the development of &ldquo;TransFiner: A Full-Scale Refinement Approach for Multiple Object Tracking&rdquo;.</p>
